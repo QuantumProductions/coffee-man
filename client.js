@@ -12,16 +12,38 @@ class Client {
 	constructor(options) {
 		this.installRendering();
 		this.installInput();
-		this.installGame()
+		this.installGame();
+		this.renderStory();
 	}
 
 	installGame() {
 		this.game = new Game();
-		this.promptContainer.innerText = this.game.page.prompt;
-		console.log(this.game.page.prompt);
 	}
 
 	installInput() {
 
+	}
+
+	installChoices() {
+		var choices = this.game.page.options;
+		for (var i = 0; i < choices.length; i++) {
+			var choice = choices[i];
+			var choiceDiv = document.createElement("choice" + i);
+			//choiceDiv.innerText = choice[0];
+			choiceDiv.innerHTML= "<p>" + choice[0];
+			this.choicesContainer.appendChild(choiceDiv);
+		}
+
+	}
+
+	renderStory() {
+		this.promptContainer.innerText = this.game.page.prompt;
+		this.installChoices();
+	}
+
+	makeChoice() {
+		var choice = 0;//
+		this.game.move(choice);
+		this.renderStory();
 	}
 }
