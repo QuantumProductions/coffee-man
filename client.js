@@ -7,8 +7,6 @@ class Client {
 		var gameContainer = document.getElementById("game_container");
 		gameContainer.appendChild(this.promptContainer);
 		gameContainer.appendChild(this.choicesContainer);
-
-		gameContainer.innerText = "Coffee Man";
 	}
 
 	constructor(options) {
@@ -18,10 +16,12 @@ class Client {
 	}
 
 	installGame() {
-
+		this.game = new Game();
+		this.promptContainer.innerText = this.game.page.prompt;
+		console.log(this.game.page.prompt);
 	}
 
 	installInput() {
-		
+
 	}
 }

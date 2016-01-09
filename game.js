@@ -1,9 +1,8 @@
 "use strict";
 
 class Game {
-
 	constructor(options) {
-		this.canvas = options['canvas'];
+		this.chapter = 0;
 		this.installStory();
 		this.loadPage();
 	}
