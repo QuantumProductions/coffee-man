@@ -32,6 +32,7 @@ class Client {
         choiceDiv.id = "choice" + i;
         choiceDiv.innerText = choice[0];
         choiceDiv.addEventListener("click", this.clicked);
+        choiceDiv.client = this;
         this.choicesContainer.appendChild(choiceDiv);
     }
 	}
@@ -39,6 +40,9 @@ class Client {
 	clicked(event) {
 		var target = event.srcElement || event.currentTarget || event.target;
     console.log(target.id); //this will log "choice0"
+    var choiceNumber = target.id.replace('choice', '');
+    target.client.game.move(choiceNumber);
+    target.client.promptContainer.innerText = target.client.game.prompt;
 	}
 
 	renderStory() {
@@ -46,9 +50,9 @@ class Client {
 		this.installChoices();
 	}
 
-	makeChoice() {
-		var choice = 0;//
-		this.game.move(choice);
-		this.renderStory();
-	}
+	// makeChoice() {
+	// 	var choice = 0;//
+	// 	this.game.move(choice);
+	// 	this.renderStory();
+	// }
 }

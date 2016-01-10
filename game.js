@@ -28,7 +28,7 @@ class Game {
 	}
 
 	move(choice) {
-		this.prompt = this.options[choice][1];
+		this.prompt = this.page.options[choice][1];
 		this.choices = [];
 		//server will send new prompt
 	}
