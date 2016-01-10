@@ -8,15 +8,7 @@ class Game {
 	}
 
 	installStory() {
-		this.story = [
-			{'prompt' : 'starting prompt',
-				'options': [['path 1', 'path 1 response'], ['path 2', 'path 2 response']]
-			},
-			{'prompt' : 'second prompt',
-				'options': [['path 1', 'path 1 response'], ['path 2', 'path 2 response']]
-			},
-
-		]
+		this.story = new Story().story; //load from options?
 	}
 
 	// resumeStory(options) {
@@ -25,12 +17,13 @@ class Game {
 
 	loadPage() {
 		this.page = this.story[this.chapter];
+		this.prompt = this.page.prompt;
+		this.choices = this.page.options;
 	}
 
 	move(choice) {
 		this.prompt = this.page.options[choice][1];
 		this.choices = [];
-		//server will send new prompt
 	}
 
 	advanceChapter() {

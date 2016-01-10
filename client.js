@@ -25,7 +25,8 @@ class Client {
 	}
 
 	installChoices() {
-    var choices = this.game.page.options;
+    var choices = this.game.choices;
+    this.choicesContainer.innerHTML = "";
     for (var i = 0; i < choices.length; i++) {
         var choice = choices[i];
         var choiceDiv = document.createElement("div");
@@ -43,10 +44,12 @@ class Client {
     var choiceNumber = target.id.replace('choice', '');
     target.client.game.move(choiceNumber);
     target.client.promptContainer.innerText = target.client.game.prompt;
+    target.client.renderStory();
 	}
 
 	renderStory() {
-		this.promptContainer.innerText = this.game.page.prompt;
+		this.promptContainer.innerText = this.game.prompt;
+		console.log("prompt" + this.game.page.prompt);
 		this.installChoices();
 	}
 
