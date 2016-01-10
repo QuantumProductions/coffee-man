@@ -25,15 +25,20 @@ class Client {
 	}
 
 	installChoices() {
-		var choices = this.game.page.options;
-		for (var i = 0; i < choices.length; i++) {
-			var choice = choices[i];
-			var choiceDiv = document.createElement("choice" + i);
-			//choiceDiv.innerText = choice[0];
-			choiceDiv.innerHTML= "<p>" + choice[0];
-			this.choicesContainer.appendChild(choiceDiv);
-		}
+    var choices = this.game.page.options;
+    for (var i = 0; i < choices.length; i++) {
+        var choice = choices[i];
+        var choiceDiv = document.createElement("div");
+        choiceDiv.id = "choice" + i;
+        choiceDiv.innerText = choice[0];
+        choiceDiv.addEventListener("click", this.clicked);
+        this.choicesContainer.appendChild(choiceDiv);
+    }
+	}
 
+	clicked(event) {
+		var target = event.srcElement || event.currentTarget || event.target;
+    console.log(target.id); //this will log "choice0"
 	}
 
 	renderStory() {
