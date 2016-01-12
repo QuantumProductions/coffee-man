@@ -35,7 +35,7 @@ class Client {
         button.innerHTML = choice[0];
 				button.addEventListener("click", this.clicked);
         button.client = this;
-        button.id = "choice" + i;
+        button.id = "choice" + choice[1];
 				choiceDiv.appendChild(button);
         this.choicesContainer.appendChild(choiceDiv);
     }
@@ -46,7 +46,7 @@ class Client {
     console.log(target.id); //this will log "choice0"
     var choiceNumber = target.id.replace('choice', '');
     target.client.game.move(choiceNumber);
-    target.client.promptContainer.innerText = target.client.game.prompt;
+    //target.client.promptContainer.innerText = target.client.game.prompt;
     target.client.renderStory();
 	}
 

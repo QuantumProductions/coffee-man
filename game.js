@@ -17,22 +17,24 @@ class Game {
 
 	loadPage() {
 		this.page = this.story[this.chapter];
-		this.prompt = this.page.prompt;
-		this.choices = this.page.options;
+		console.log(this.chapter);
+		console.log(this.story);
+		this.prompt = this.page[0];
+		this.choices = this.page[1];
 	}
 
 	move(choice) {
-		this.prompt = this.page.options[choice][1];
-		this.choices = [];
+		this.chapter = choice;
+		this.loadPage();
 	}
 
-	advanceChapter() {
-		this.chapter++;
-		if (this.chapter < this.story.length) {
-			loadPage();
-		} else {
+	// advanceChapter() {
+	// 	this.chapter++;
+	// 	if (this.chapter < this.story.length) {
+	// 		loadPage();
+	// 	} else {
 
-		}
-	}
+	// 	}
+	//}
 
 }
