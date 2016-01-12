@@ -20,6 +20,10 @@
   text-decoration: none;
 }
 
+body {
+	font-size: 300%;
+}
+
 .bodytext {
  font-size: 4.8vw;
 }
