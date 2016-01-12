@@ -12,7 +12,7 @@ class Story {
 [["Coffee", 2]]],
 
 ["'Oh yah? My daughter's asked me for a dog. Hard enough for her to find playmates since her...'",
-[["Coffee", 3], ["Think about it.", 6]]],
+[["Give dog.", 3], ["Think about it.", 6]]],
 
 ["Black life winds out of its bowl, dripping into my mug. From Venezuela, dark with a hint of citrus. It smells like ambition and lifts me out of my haze.",
 [["Coffee", 4]]],
