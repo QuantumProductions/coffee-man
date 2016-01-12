@@ -30,10 +30,19 @@ class Client {
     for (var i = 0; i < choices.length; i++) {
         var choice = choices[i];
         var choiceDiv = document.createElement("div");
-        choiceDiv.id = "choice" + i;
-        choiceDiv.innerText = choice[0];
-        choiceDiv.addEventListener("click", this.clicked);
-        choiceDiv.client = this;
+
+        var button = document.createElement("button");
+        button.className = "btn";
+        button.innerHTML = choice[0];
+				button.addEventListener("click", this.clicked);
+        button.client = this;
+        button.id = "choice" + i;
+				choiceDiv.appendChild(button);
+        
+        // choiceDiv.id = "choice" + i;
+        // choiceDiv.innerText = choice[0];
+        // choiceDiv.addEventListener("click", this.clicked);
+        // choiceDiv.client = this;
         this.choicesContainer.appendChild(choiceDiv);
     }
 	}
