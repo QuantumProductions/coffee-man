@@ -30,7 +30,6 @@ class Client {
     for (var i = 0; i < choices.length; i++) {
         var choice = choices[i];
         var choiceDiv = document.createElement("div");
-
         var button = document.createElement("button");
         button.className = "btn";
         button.innerHTML = choice[0];
@@ -38,11 +37,6 @@ class Client {
         button.client = this;
         button.id = "choice" + i;
 				choiceDiv.appendChild(button);
-        
-        // choiceDiv.id = "choice" + i;
-        // choiceDiv.innerText = choice[0];
-        // choiceDiv.addEventListener("click", this.clicked);
-        // choiceDiv.client = this;
         this.choicesContainer.appendChild(choiceDiv);
     }
 	}
