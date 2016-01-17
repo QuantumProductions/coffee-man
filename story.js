@@ -38,7 +38,7 @@ class Story {
 ["'That's yours? Glad you found me. Please sit, share a drink with us. I'll walk your dog here after.'",
 [["Coffee", 11]]],
 
-["She smiles, sits next to me, orders an expresso then turns to face me.",
+["She smiles, sits next to me, orders an espresso then turns to face me.",
 [["Coffee", 12]]],
 
 ["'I thought he got lost when he ran out this morning. Patching up the walls after the storm spooked him. He's a simple creature, but he keeps me happy.'",
