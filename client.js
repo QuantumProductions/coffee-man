@@ -39,6 +39,12 @@ class Client {
 				choiceDiv.appendChild(button);
         this.choicesContainer.appendChild(choiceDiv);
     }
+
+    if (choices.length == 0) {
+    	var drankDiv = document.createElement("div");
+    	drankDiv.id = "drank";
+    	this.choicesContainer.appendChild(drankDiv);
+    }
 	}
 
 	clicked(event) {
