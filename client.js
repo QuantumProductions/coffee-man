@@ -46,6 +46,7 @@ class Client {
     if (choices.length == 0) {
     	var drankDiv = document.createElement("div");
     	drankDiv.id = "drank";
+    	drankDiv.innerHTML = " ";
     	this.choicesContainer.appendChild(drankDiv);
     }
 	}
