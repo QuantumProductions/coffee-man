@@ -1,8 +1,10 @@
+
 "use strict";
 
 class Game {
 	constructor(options) {
-		this.chapter = 0;
+		this.chapter = options["chapter"]; //0;
+		console.log("chapter" + this.chapter);
 		this.installStory();
 		this.loadPage();
 	}

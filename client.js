@@ -17,7 +17,10 @@ class Client {
 	}
 
 	installGame() {
-		this.game = new Game();
+   var url = window.location.href;
+	  var chapter = url.split("chapter=")[1];
+	  console.log("chapter" + chapter);
+	  this.game = new Game({"chapter" : chapter});
 	}
 
 	installInput() {
