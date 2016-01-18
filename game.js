@@ -5,29 +5,38 @@ class Game {
 	constructor(options) {
 		this.chapter = options["chapter"]; //0;
 		console.log("chapter" + this.chapter);
-		this.installStory();
-		this.loadPage();
+		var client = options['client'];
+		this.installStory(client);
+		//this.loadPage(0); //happens in callback
 	}
 
-	installStory() {
-		this.story = new Story().story; //load from options?
+	installStory(client) {
+		var that = this;
+		var callback = function(response) {
+			console.log("RESPONSE IS" + response);
+			that.story = response;
+			that.loadPage(0);
+			client.renderStory();
+		}
+		new Story({'chapter' : this.chapter}, callback);
 	}
 
 	// resumeStory(options) {
 	// 	//set index from options
 	// }
 
-	loadPage() {
-		this.page = this.story[this.chapter];
-		console.log(this.chapter);
+	loadPage(pageNumber) {
+		console.log("STORY IS" + this.story.length);
+		this.page = this.story[pageNumber];
+		console.log(this.page);
 		console.log(this.story);
 		this.prompt = this.page[0];
 		this.choices = this.page[1];
+		console.log("choices are" + this.page);
 	}
 
 	move(choice) {
-		this.chapter = choice;
-		this.loadPage();
+		this.loadPage(choice);
 	}
 
 	// advanceChapter() {

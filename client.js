@@ -13,14 +13,14 @@ class Client {
 		this.installRendering();
 		this.installInput();
 		this.installGame();
-		this.renderStory();
+		//this.renderStory();
 	}
 
 	installGame() {
    var url = window.location.href;
 	  var chapter = url.split("chapter=")[1];
 	  console.log("chapter" + chapter);
-	  this.game = new Game({"chapter" : chapter});
+	  this.game = new Game({"chapter" : chapter, "client" : this});
 	}
 
 	installInput() {
@@ -61,7 +61,7 @@ class Client {
 
 	renderStory() {
 		this.promptContainer.innerText = this.game.prompt;
-		console.log("prompt" + this.game.page.prompt);
+		//console.log("prompt" + this.game.prompt);
 		this.installChoices();
 	}
 
