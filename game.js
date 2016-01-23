@@ -7,7 +7,7 @@ class Game {
 		console.log("chapter" + this.chapter);
 		var client = options['client'];
 		this.installStory(client);
-		//this.loadPage(0); //happens in callback
+		this.pageNumber = 0;
 	}
 
 	installStory(client) {
@@ -26,12 +26,18 @@ class Game {
 	// }
 
 	loadPage(pageNumber) {
+		this.pageNumber = parseInt(pageNumber);
 		console.log("STORY IS" + this.story.length);
 		this.page = this.story[pageNumber];
 		console.log(this.page);
 		console.log(this.story);
 		this.prompt = this.page[0];
-		this.choices = this.page[1];
+		if (this.page[1]) {
+			this.choices = this.page[1];	
+		} else {
+			this.choices = [];
+		}
+		
 		console.log("choices are" + this.page);
 	}
 

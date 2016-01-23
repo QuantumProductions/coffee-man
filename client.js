@@ -38,16 +38,31 @@ class Client {
         button.innerHTML = choice[0];
 				button.addEventListener("click", this.clicked);
         button.client = this;
-        button.id = "choice" + choice[1];
-				choiceDiv.appendChild(button);
+        if (choice[0] == 'drank') {
+        	choiceDiv.id = "drank";
+        	choiceDiv.innerHTML = " ";
+        } else {
+        	button.id = "choice" + choice[1];
+					choiceDiv.appendChild(button);
+        }
+        
         this.choicesContainer.appendChild(choiceDiv);
     }
 
     if (choices.length == 0) {
-    	var drankDiv = document.createElement("div");
-    	drankDiv.id = "drank";
-    	drankDiv.innerHTML = " ";
-    	this.choicesContainer.appendChild(drankDiv);
+    	var coffeeDiv = document.createElement("div");
+    	var button = document.createElement("button");
+    	button.className = "btn";
+    	button.innerHTML = "Coffee";
+    	button.addEventListener("click", this.clicked);
+      button.client = this;
+      console.log("PN " + this.game.pageNumber);
+      var number = 1 + this.game.pageNumber;
+      console.log("next choice number is: " + number);
+      button.id = "choice" + number;
+			button.client = this;
+			coffeeDiv.appendChild(button);
+      this.choicesContainer.appendChild(coffeeDiv);
     }
 	}
 
@@ -66,9 +81,4 @@ class Client {
 		this.installChoices();
 	}
 
-	// makeChoice() {
-	// 	var choice = 0;//
-	// 	this.game.move(choice);
-	// 	this.renderStory();
-	// }
 }
